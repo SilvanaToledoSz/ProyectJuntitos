@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+/* ---- Estilos Proyecto ---- */
+
+/* font-family: 'Arima Madurai', cursive;
+font-family: 'Comfortaa', cursive;
+font-family: 'Righteous', cursive;*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;200;300;400;500;700;800;900&family=Comfortaa:wght@300;400;500;600;700&family=Righteous&display=swap');
+
+/* Estilo de reseteo */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive;
+  color: #424251;
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 130%;
+  scroll-behavior: smooth; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* General */
+
+a {
+  text-decoration: none;
+  color: #424251;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover {
+  font-weight: 600;
+  color: #424251;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  background-image: url("../public/fondo_juntitos_tn2.png");
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  text-transform: uppercase;
 }
