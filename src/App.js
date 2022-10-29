@@ -7,10 +7,6 @@ import 'animate.css'
 import {CartContextProvider} from './context/cartContext'
 import CartView from './components/CartView/CartView';
 
-
-
-
-
 function App() {
   return (
     <CartContextProvider>
@@ -23,8 +19,7 @@ function App() {
               <Route path="/item/:id" element={<ItemDetailContainer/>} />
               <Route path="*" element={<h4>Te perdiste<br/>Error 404</h4>}/>
               <Route path="/category/:id" element={<ItemListContainer />}/> 
-              <Route path="/cart" element={<CartView />}/>             
-              
+              <Route path="/cart" element={<CartView />}/> 
             </Routes>
             </div>
         </div>

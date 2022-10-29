@@ -8,7 +8,12 @@ function CartWidget() {
 
   const { getTotalProdCount } = useContext(cartContext)
   
+    if (getTotalProdCount() === 0)
 
+    return (
+      <>
+      </>
+    )
 
     return (
         <>
@@ -18,12 +23,7 @@ function CartWidget() {
               
               {
                 getTotalProdCount() > 0 && <span>{getTotalProdCount()}</span>
-              }
-              
-              
-              
-              
-              
+              }   
               
             </div>
           </Link>

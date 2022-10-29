@@ -44,10 +44,10 @@ if (producto.title)
 
             {inCart === false && count === 0  ? 
             <ItemCount contando={producto.contando} onAddToCart={handleAddToCart} stock={producto.stock} initial={1} title={producto.title} text={"Agregar al carrito"} />
-            :
-            
+            :            
             <h2>Ya está agregado al carrito
-              <Link to="/cart">Ver el carrito</Link></h2>}
+              <Link to="/cart">Terminar mi compra</Link>
+              <Link to="/">Continuar viendo productos</Link></h2>}
 
                                             
               

@@ -1,14 +1,13 @@
-
 import React, {useContext } from 'react'
 import {cartContext} from '../../context/cartContext'
 import 'sweetalert2/src/sweetalert2.scss'
 import { Link } from "react-router-dom"
 import Formulario from '../Formulario/Formulario'
+import CartItem from '../CartItem/CartItem'
 
 function CartView() {
-  const { cart, getTotalPrecio, clearCart, removeItem } = useContext(cartContext)
+  const { cart, getTotalPrecio } = useContext(cartContext)
   console.log(cart)
-  
 
   
 
@@ -23,29 +22,17 @@ function CartView() {
 
   return (
     <>
-      {cart.map((item) => (
-        <div key={item.id}>
-
-          <h2>{item.title}</h2>
-          <img src={item.img} style={{width:"50%"}} alt={item.title} />
-          <p>{item.price}</p>
-          
-          <p>{item.count}</p>
-          <p>Precio total prod: $ {item.price * item.count}</p>
-          <button onClick={ () => removeItem(item.id)}>Eliminar</button>
-          
-        </div>
-      ))}
-      <p>TOTAL DE LA COMPRA: $
-      {
-        getTotalPrecio() > 0 && <span>${getTotalPrecio()}</span>
-      }
-      </p>
-      {getTotalPrecio() > 0 && <button onClick={clearCart}>Vaciar carrito</button>
-              }
-
-             
-              <Formulario cart={cart} getTotalPrecio={getTotalPrecio}></Formulario>
+      {cart.map((item) => {
+        return <CartItem
+        id={item.id}
+        key={item.id}
+        title={item.title}
+        img={item.img}
+        price={item.price}
+        count={item.count}/>
+      })}
+      
+      <Formulario cart={cart} getTotalPrecio={getTotalPrecio}></Formulario>
               
 
               

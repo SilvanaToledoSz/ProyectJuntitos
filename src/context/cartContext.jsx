@@ -6,8 +6,7 @@ const cartContext = createContext()
 function CartContextProvider(props) {
     const [cart, setCart] = useState([])
 
-    function addToCart(count, producto) {
-        
+    function addToCart(count, producto) {        
         let newCart = [...cart]
         let newItem = {...producto, count: count}
         newCart.push(newItem)
@@ -20,28 +19,22 @@ function CartContextProvider(props) {
             total += productoInCart.count
         })
         return total
-
-    }
+        }
 
     function clearCart() {
         setCart([])
-
     }
 
     function isInCart(idProd) {
         let inCart = cart.some( prod => (prod.id === idProd) 
         )
-        return inCart
-        
-        
-        
+        return inCart    
     }
 
     function removeItem(idToRemove) {
         let newCart = cart.filter( prodInCart =>  (prodInCart.id !== idToRemove)
         )
         setCart(newCart)
-
     }
 
     function getTotalPrecio()  {

@@ -56,10 +56,10 @@ function Formulario() {
     createBuyOrder(orderData).then(respuesta => {
       
       Swal.fire({
-        title: `¡Gracias ${userData.name} por tu compra!`,
-        text: `El id de tu compra es: ${respuesta}`,
+        title: `¡Gracias ${userData.name}!`,
+        text: `Id de compra: ${respuesta}`,
         icon: 'success',
-        confirmButtonText: '¡Genial!'
+        confirmButtonText: '¡Genial, finalizar!'
       }).then (result => {
         navigate("/")
         clearCart()
