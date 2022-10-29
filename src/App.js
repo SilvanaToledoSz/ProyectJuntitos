@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import 'animate.css'
 import {CartContextProvider} from './context/cartContext'
 import CartView from './components/CartView/CartView';
-import "bootstrap/dist/css/bootstrap.css"
+
+
 
 
 
