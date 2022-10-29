@@ -6,8 +6,6 @@ import {Link} from "react-router-dom"
 
 function NavBar() {
 
-
-
   return (
     <>
         <nav className="navbar navbar-expand-lg bg-light sticky-top">
@@ -30,18 +28,13 @@ function NavBar() {
                             </Link>
                             <ul className="dropdown-menu">
                                 <li><Link to="/category/ropa" className="dropdown-item">Ropa</Link></li>
-                                <li><Link to="/category/accesorios" className="dropdown-item">Accesorios</Link></li>
+                                <li><Link to="/category/accesorios" className="dropdown-item">Accesorios</Link></li>                               
                                 
-                                {/* <li><hr className="dropdown-divider"/></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li> */}
                             </ul>
                         </li>                        
                     </ul>
                     <CartWidget/>
-                {/* <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form> */}
+                
                 </div>
             </div>
         </nav>

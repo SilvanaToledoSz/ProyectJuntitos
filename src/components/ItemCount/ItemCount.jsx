@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import Btn from '../Btn/Btn'
 
-function ItemCount( {stock, initial, text, title}) {
+
+function ItemCount( {stock, initial, text, onAddToCart, contando}) {
     
     const [count, setCount] = useState(initial)
 
@@ -10,10 +12,8 @@ function ItemCount( {stock, initial, text, title}) {
     function sumar() {
         if (count < stock) setCount (count + 1)
     }    
-    function agregarCarrito() {
-        console.log("Agregado al carrito", count, title)
-    }
 
+    
     let bntCard = {
         padding: "10px",
         margin: "10px",
@@ -23,7 +23,8 @@ function ItemCount( {stock, initial, text, title}) {
         boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
         fontWeight: "800",
     
-      }    
+      } 
+       
 
     let content = {
         padding: "20px",
@@ -37,12 +38,13 @@ function ItemCount( {stock, initial, text, title}) {
     <div className="container-fluid" style={content}>
         <h4>Realiza tu compra</h4>
         <div>
-            <button style={bntCard} disabled={stock === 0} onClick={restar}>-</button>
+            <p>{contando}</p>
+            <Btn onClick={restar} style={bntCard} disabled={stock === 0}>-</Btn>
             <strong>{count}</strong>
-            <button style={bntCard} disabled={stock === 0} onClick={sumar}>+</button>
+            <Btn style={bntCard} disabled={stock === 0} onClick={sumar}>+</Btn>
         </div>
         <div>
-            <button style={bntCard} onClick={agregarCarrito} disabled={stock === 0}>{text}</button>
+            <Btn style={bntCard} onClick={()=>{onAddToCart(count)}} disabled={stock === 0}>{text}</Btn>
         </div>
     </div>
   )

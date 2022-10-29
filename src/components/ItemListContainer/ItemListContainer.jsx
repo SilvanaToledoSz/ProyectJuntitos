@@ -1,30 +1,41 @@
 import React, { useState, useEffect } from 'react'
-import { getProductos } from '../MockApi/MockApi.js'
-import { getProdCategory } from '../MockApi/MockApi.js'
 import ItemList from '../itemList/ItemList.jsx'
 import {useParams} from "react-router-dom"
+import Loader from '../Loader/Loader.jsx'
+import { getProductos, getProdCategory } from '../../services/firebase'
 
-function ItemListContainer() {
+function ItemListContainer(props) {
+
   const [productsList, setproductsList] = useState([])
+  const [isLoaading, setisLoaading] = useState(true)
   const {id}  = useParams()
  
 
   useEffect(
     () => {
+      setproductsList([])
       if (id === undefined){
         getProductos().then (
         (data) => {               
           setproductsList(data)
+          setisLoaading(false)
         }
       )}
       else {
         getProdCategory(id).then (
           (data) => {               
             setproductsList(data)
+            setisLoaading(false)
           }
         )
       }
     },[id]
+  )
+
+  if (isLoaading === true)
+
+  return (
+    <h3><Loader/></h3>
   )
 
   return (
@@ -37,6 +48,8 @@ function ItemListContainer() {
         </div>
     </div>
   )
+
+  
 }
 
 export default ItemListContainer

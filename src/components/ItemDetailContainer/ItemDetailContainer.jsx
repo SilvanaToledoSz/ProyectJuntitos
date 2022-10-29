@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from 'react'
-import { getUnProd } from '../MockApi/MockApi.js'
+
 import { useParams } from "react-router-dom"
+import { getUnProd } from '../../services/firebase.js'
 import ItemDetail from '../ItemDetail/ItemDetail.jsx'
 
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
+
+  
+
   const [producto, setProducto] = useState([])
+  const [feedbackMsj, setFeedbackMsj] = useState(null)
 
   const {id} = useParams()
-
-  console.log(useParams())
+  console.log(id)  
 
   useEffect(
     () => {
-      getUnProd(id).then (
-        (data) => {               
+      getUnProd(id)
+      .then ((data) => {               
             setProducto(data)
-        }
-      )
+        })
+      .catch((error) => {
+        setFeedbackMsj(error.message)
+      })
     },[id]
   )
 
   return (
+    
     <div>
-        <ItemDetail 
-          key={producto.id}
-          title={producto.title} 
-          img={producto.img}
-          stock={producto.stock}
-          price={producto.price}
-          description={producto.description}/>
-        
+      {feedbackMsj !== null 
+      ? 
+      <h4>Error: {feedbackMsj}</h4>
+      : 
+      <ItemDetail 
+      producto={producto}/>
+      }     
     </div>
   )
 }
