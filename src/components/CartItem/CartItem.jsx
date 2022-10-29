@@ -10,7 +10,6 @@ function CartItem(props) {
     <h2>{props.title}</h2>
     <img src={props.img} style={{width:"50%"}} alt={props.title} />
     <p>{props.price}</p>
-
     <p>{props.count}</p>
     <p>Precio total prod: $ {props.price * props.count}</p>
     <button onClick={ () => removeItem(props.id)}>Eliminar</button>
@@ -23,10 +22,7 @@ function CartItem(props) {
       }
       </p>
       {getTotalPrecio() > 0 && <button onClick={clearCart}>Vaciar carrito</button>
-              }
-    
-    
-    
+      } 
     </>
   )
 }
