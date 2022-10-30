@@ -69,7 +69,7 @@ function Formulario() {
       <InputForm value={userData.surname} title="Apellido" name="surname" required={true} onChange={onInputChange}></InputForm>
       <InputForm value={userData.email} title="Email" name="email" required={true} onChange={onInputChange}></InputForm>
       <InputForm value={userData.phone} title="Teléfono" name="phone" required={true} onChange={onInputChange}></InputForm>
-      <button type="submit" style={{backgroundColor:"#B5CC72", borderColor: "#B5CC72", boxShadow: "1.2px 1.2px 2px rgba(0, 0, 0, 0.2)",fontWeight: 800}} className="btn btn-primary" disabled={!(userData.name !== "" && userData.surname !== "" && userData.email !== "" && userData.phone !== "")} >Submit</button>
+      <button type="submit" style={{backgroundColor:"#B5CC72", borderColor: "#B5CC72", boxShadow: "1.2px 1.2px 2px rgba(0, 0, 0, 0.2)", fontWeight: "800"}} className="btn btn-primary" disabled={!(userData.name !== "" && userData.surname !== "" && userData.email !== "" && userData.phone !== "")} >Enviar datos y finalizar compra</button>
     </form>
   )
 }
