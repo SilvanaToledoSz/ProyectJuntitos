@@ -17,20 +17,15 @@ function CartWidget() {
 
     return (
         <>
-          <Link to="/cart">
-            <div className="p-2 me-4">
-              <FaShoppingCart style={{color:'#F7F7F7', fontSize: '30px'}}/>
-              
-              {
-                getTotalProdCount() > 0 && <span>{getTotalProdCount()}</span>
-              }   
-              
-            </div>
-          </Link>
           
+            <div className="p-2 me-4">
+            <Link to="/cart"><FaShoppingCart style={{paddingBottom: "10px", color:'#F7F7F7', fontSize: '30px'}}/></Link>               
+              {
+                getTotalProdCount() > 0 && <span style={{ fontSize: '20px'}}>{getTotalProdCount()}</span>
+              }                 
+            </div>
           
         </>
-      )
+    )
 }
-
 export default CartWidget

@@ -6,7 +6,6 @@ import 'sweetalert2/src/sweetalert2.scss'
 import InputForm from './InputForm/InputForm'
 import {useNavigate} from 'react-router-dom'
 
-
 function Formulario() {
 
   const { cart, getTotalPrecio, clearCart } = useContext(cartContext)
@@ -23,15 +22,13 @@ function Formulario() {
   function onInputChange(evt) {
     const name = evt.target.name
     const value = evt.target.value
-
     let newUserData = {...userData} 
     newUserData[name] = value
     setUserData(newUserData)
   }
 
   function onSubmit(evt) {
-    evt.preventDefault()
-    console.log(`Tu nombre es ${userData.name} ${userData.surname}, tu email es${userData.email} y tu teléfono es ${userData.phone}`)
+    evt.preventDefault()    
     setUserData({
       name: "",
       surname: "",
@@ -53,35 +50,27 @@ function Formulario() {
       date: new Date()
     }
 
-    createBuyOrder(orderData).then(respuesta => {
-      
+    createBuyOrder(orderData).then(respuesta => {      
       Swal.fire({
         title: `¡Gracias ${userData.name}!`,
-        text: `Id de compra: ${respuesta}`,
+        text: `Compra finalizada. Id de compra: ${respuesta}`,
         icon: 'success',
-        confirmButtonText: '¡Genial, finalizar!'
+        confirmButtonText: 'Finalizar'
       }).then (result => {
         navigate("/")
         clearCart()
-
       })
     })
-
   }
     
   return (
-    <form onSubmit={onSubmit}>
-        
-            <InputForm value={userData.name} title="Nombre" name="name" required={true} onChange={onInputChange}></InputForm>
-            <InputForm value={userData.surname} title="Apellido" name="surname" required={true} onChange={onInputChange}></InputForm>
-            <InputForm value={userData.email} title="Email" name="email" required={true} onChange={onInputChange}></InputForm>
-            <InputForm value={userData.phone} title="Teléfono" name="phone" required={true} onChange={onInputChange}></InputForm>
-            
-           
-            <button type="submit" className="btn btn-primary" disabled={!(userData.name !== "" && userData.surname !== "" && userData.email !== "" && userData.phone !== "")} >Submit</button>
-       
+    <form onSubmit={onSubmit}>        
+      <InputForm value={userData.name} title="Nombre" name="name" required={true} onChange={onInputChange}></InputForm>
+      <InputForm value={userData.surname} title="Apellido" name="surname" required={true} onChange={onInputChange}></InputForm>
+      <InputForm value={userData.email} title="Email" name="email" required={true} onChange={onInputChange}></InputForm>
+      <InputForm value={userData.phone} title="Teléfono" name="phone" required={true} onChange={onInputChange}></InputForm>
+      <button type="submit" style={{backgroundColor:"#B5CC72", borderColor: "#B5CC72", boxShadow: "1.2px 1.2px 2px rgba(0, 0, 0, 0.2)",fontWeight: 800}} className="btn btn-primary" disabled={!(userData.name !== "" && userData.surname !== "" && userData.email !== "" && userData.phone !== "")} >Submit</button>
     </form>
   )
 }
-
 export default Formulario

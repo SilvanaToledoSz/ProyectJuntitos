@@ -1,16 +1,22 @@
 import React from 'react'
 import CartWidget from './CartWidget/CartWidget'
 import logo from './logo.png'
-import './NavBar.css'
 import {Link} from "react-router-dom"
 
 function NavBar() {
+
+    let logoNavbar = { 
+    width: "90px",
+    margin: "0px",
+    display: "flex",
+    padding: "10px"
+    }
 
   return (
     <>
         <nav className="navbar navbar-expand-lg bg-light sticky-top">
             <div className="container-fluid">
-                <img className='logoNavbar' src={logo} alt="Logo Juntitos"/>
+                <img style={logoNavbar} src={logo} alt="Logo Juntitos"/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -28,19 +34,15 @@ function NavBar() {
                             </Link>
                             <ul className="dropdown-menu">
                                 <li><Link to="/category/ropa" className="dropdown-item">Ropa</Link></li>
-                                <li><Link to="/category/accesorios" className="dropdown-item">Accesorios</Link></li>                               
-                                
+                                <li><Link to="/category/accesorios" className="dropdown-item">Accesorios</Link></li> 
                             </ul>
                         </li>                        
                     </ul>
-                    <CartWidget/>
-                
+                    <CartWidget/>                
                 </div>
             </div>
-        </nav>
-    
+        </nav>    
     </>
   )
 }
-
 export default NavBar

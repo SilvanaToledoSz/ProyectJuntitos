@@ -13,10 +13,8 @@ function ItemList(props) {
           stock={productos.stock}
           price={productos.price}
           offer={productos.offer}/>
-
         })}
     </>
   )
 }
-
 export default ItemList

@@ -1,0 +1,32 @@
+footer .footer__div {
+    background-color: #F8F9FA;
+    height: 120px; 
+    margin-top: 60px;
+}
+
+footer .footer__div .div__fila--footer {
+    height: 100%; 
+}
+
+footer .footer__div .div__fila--footer .div__img--logoFooter {
+    width: 300px;
+    opacity: 0.7; 
+}
+
+footer .footer__div .div__disclaimer--footer {
+font-size: 10px; 
+}
+
+footer .footer__div .div__redes--footer {
+display: flex;
+justify-content: center; 
+}
+
+footer .footer__div .div__redes--footer a {
+transition: 0.5s; 
+}
+
+footer .footer__div .div__redes--footer a:hover {
+transform: translate(0, -7px); 
+}
+  

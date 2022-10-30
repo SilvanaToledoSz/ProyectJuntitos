@@ -6,26 +6,35 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import 'animate.css'
 import {CartContextProvider} from './context/cartContext'
 import CartView from './components/CartView/CartView';
+import Footer from './components/Footer/Footer';
+import Error from './components/Error/Error';
 
 function App() {
   return (
-    <CartContextProvider>
-      <BrowserRouter>
-        <NavBar/>
-        <div className='container'>
-          <div className='col-12'>
-            <Routes>
-              <Route path="/" element={<ItemListContainer />} />
-              <Route path="/item/:id" element={<ItemDetailContainer/>} />
-              <Route path="*" element={<h4>Te perdiste<br/>Error 404</h4>}/>
-              <Route path="/category/:id" element={<ItemListContainer />}/> 
-              <Route path="/cart" element={<CartView />}/> 
-            </Routes>
+    
+      <CartContextProvider>
+        <BrowserRouter>          
+          <header>
+          <NavBar/>
+          </header>
+          <main>
+            <div className='container'>
+              <div className='col-12'>
+                <Routes>
+                  <Route path="/" element={<ItemListContainer />} />
+                  <Route path="/item/:id" element={<ItemDetailContainer/>} />
+                  <Route path="*" element={<Error />} />
+                  <Route path="/category/:id" element={<ItemListContainer />}/> 
+                  <Route path="/cart" element={<CartView />}/> 
+                </Routes>
+                </div>
             </div>
-        </div>
-        
-      </BrowserRouter>
-    </CartContextProvider>
+          </main>
+          <footer>
+            <Footer/>
+          </footer>
+        </BrowserRouter>
+      </CartContextProvider>    
       
   );
 }

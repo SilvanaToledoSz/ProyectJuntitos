@@ -20,6 +20,7 @@ También podrán ver el proyecto online, sin tener que descargarlo, a través de
 - React icons
 - Animate.css
 - Firebase
+- uiball Loaaders
 
 ### Derechos de autor
 Todo el material visual del sitio pertenece a la marca "Juntitos Bebes". Todos los derechos reservados. Los valores y stock son únicamente a modo de ejemplo. 

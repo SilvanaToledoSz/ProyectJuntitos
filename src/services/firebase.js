@@ -23,10 +23,10 @@ export async function getProductos() {
     return dataProductos    
 }
 
-export async function getUnProd(idParams) {    
+export async function verUnProducto(idParams) {    
     const docRef = doc(db, "productos", idParams);
     const docResult = await getDoc(docRef);
-    return {id: docRef.id, ...docResult.data()}
+    return {id: docRef.id, ...docResult.data()}    
 }
 
 export async function getProdCategory(idCategoryParams) {  
