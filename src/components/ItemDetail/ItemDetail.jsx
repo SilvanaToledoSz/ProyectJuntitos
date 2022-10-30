@@ -1,10 +1,9 @@
 import React, { useState }  from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { Link } from "react-router-dom"
 import { useContext } from 'react'
 import { cartContext } from '../../context/cartContext' 
 import Loader from '../Loader/Loader'
-import Btn from '../Btn/Btn'
+import ItemAgregado from '../ItemAgregado/ItemAgregado'
 
 function ItemDetail({producto}) {  
 
@@ -21,32 +20,6 @@ const precioOferta = {
   fontWeight: "bolder",
   fontSize: "16px"
 }
-
-let content = {
-  padding: "20px",
-  width: "100%",
-  marginTop: "100px",
-  marginBottom: "0px",
-  textAlign: "center",
-  backgroundColor: "#F3F3F3",
-  borderRadius: "2px",
-  height:"200px",
-  display:"flex",
-  flexDirection:"row",
-  justifyContent:"center",
-  alignItems:"center"
-}
-
-let bntCard = {
-  padding: "10px",
-  margin: "10px",
-  borderRadius: "5px",
-  backgroundColor: producto.offer === true ? "#ECB1B3" : "#F4DE79",
-  borderColor: producto.offer === true ? "#ECB1B3" : "#F4DE79",    
-  boxShadow: "1.2px 1.2px 2px rgba(0, 0, 0, 0.2)",
-  fontWeight: "800",
-  color: producto.offer === true ? "white" : "black",    
-} 
 
 let inCart = isInCart(producto.id)
 
@@ -73,13 +46,7 @@ if (producto.title)
               {inCart === false && count === 0  ? 
               <ItemCount contando={producto.contando} offer={producto.offer} onAddToCart={handleAddToCart} stock={producto.stock} initial={1} title={producto.title} text={"Agregar al carrito"} />
               :            
-              <div className="container-fluid" style={content}>
-                <h4 style={{fontWeight:"bolder"}}>¡Agregado al carrito!</h4>
-                <div>
-                  <Link to="/"><Btn style={bntCard}>Ver más productos</Btn></Link>
-                  <Link to="/cart"><Btn style={bntCard}>Terminar mi compra</Btn></Link>
-                </div>
-              </div>
+              <ItemAgregado offer={producto.offer}/>
               }              
             </div>
           </div>
