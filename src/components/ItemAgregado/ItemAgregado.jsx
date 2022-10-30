@@ -6,7 +6,7 @@ function ItemAgregado(props) {
     let content = {
         padding: "20px",
         width: "100%",
-        marginTop: "100px",
+        marginTop: "220px",
         marginBottom: "0px",
         textAlign: "center",
         backgroundColor: "#F3F3F3",
