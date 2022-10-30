@@ -25,7 +25,7 @@ let inCart = isInCart(producto.id)
 
 if (producto.title) 
   return (
-    <div className="container-fluid" style={{width:"80%", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:"50px" }}>
+    <div className="container-fluid" style={{width:"100%", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:"50px" }}>
       <div className="row">
         <div className="col">
           <img src={producto.img} alt={producto.title} className="img-fluid rounded" style={{height:"100%", width:"100%", objectFit: "cover"}} />

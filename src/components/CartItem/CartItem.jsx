@@ -17,7 +17,7 @@ function CartItem(props) {
     
   return (
     <>    
-      <div className="container-fluid" style={{width:"80%", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:"50px" }}>      
+      <div className="container-fluid" style={{width:"100%", display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", marginTop:"50px" }}>      
         <div className='row align-items-center'>        
           <div className='col-3'>
             <img src={props.img} className="img-fluid rounded" style={{height:"80%", width:"80%", objectFit: "cover"}} alt={props.title} />          
